@@ -2,19 +2,19 @@ let num1 = 0;
 let num2 = 0;
 let operator = '';
 
-function addition(x, y) {
+function add(x, y) {
     return x + y;
 }
 
-function subtraction(x, y) {
+function subtract(x, y) {
     return x - y;
 }
 
-function multiplication(x, y) {
+function multiply(x, y) {
     return x * y;
 }
 
-function division(x, y) {
+function divide(x, y) {
     return x / y;
 }
 
@@ -22,15 +22,15 @@ function operate(x, y, operator) {
 
     switch (operator) {
         case '+':
-            return addition(x, y);
+            return add(x, y);
 
         case '-':
-            return subtraction(x, y);
+            return subtract(x, y);
         
         case '*':
-            return subtraction(x, y);
+            return multiply(x, y);
         
         case '/':
-            return subtraction(x, y);
+            return divide(x, y);
     }
 }
