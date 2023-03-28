@@ -2,3 +2,7 @@
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
 }
+
+button#zero {
+    grid-column: 1 / span 2;
+}
