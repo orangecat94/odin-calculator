@@ -2,6 +2,12 @@ let num1 = 0;
 let num2 = 0;
 let operator = '';
 
+const keys = document.querySelector('.buttons');
+keys.addEventListener("click", e => {
+    console.log(e.target.dataset.action);
+})
+
+
 function add(x, y) {
     return x + y;
 }
@@ -34,3 +40,5 @@ function operate(x, y, operator) {
             return divide(x, y);
     }
 }
+
+
