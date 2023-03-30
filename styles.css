@@ -5,14 +5,13 @@ div.calculator {
     align-items: center;
     /* background-image: linear-gradient(236deg, #74ebd5, #acb6e5); */
     height: 100vh;
-
 }
 
 .buttons {
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
     /* grid-template-columns: repeat(4, 1fr); */
-    position: relative;
+    /* position: relative; */
 }
 
 button#zero {
@@ -21,4 +20,6 @@ button#zero {
 
 button.btn {
     border-radius: 50%;
+    border-width: 10px;
+    margin: 3px;
 }
