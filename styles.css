@@ -4,7 +4,16 @@ div.calculator {
     justify-content: center;
     align-items: center;
     /* background-image: linear-gradient(236deg, #74ebd5, #acb6e5); */
-    height: 100vh;
+    /* height: 100vh; */
+}
+
+div.header {
+    margin: 10px;
+}
+
+div.display {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .buttons {
