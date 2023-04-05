@@ -3,8 +3,30 @@ let num2 = 0;
 let operator = '';
 
 const keys = document.querySelector('.buttons');
+const display = document.querySelector('div.display');
+
 keys.addEventListener("click", e => {
-    console.log(e.target.dataset.action);
+    // console.log(e.target.dataset.action);
+    // console.log(e.target.textContent);
+    // console.log(display.textContent);
+
+    if (e.target.matches('button')) {
+        const action = e.target.dataset.action;
+        const keyContent = e.target.textContent;
+        const displayNum = display.textContent;
+
+        // Append number to display if button clicked is not an action
+        if (!action) {
+            if (displayNum === '0') {
+                display.textContent = keyContent;
+            } else {
+                display.textContent = displayNum + keyContent;
+            }
+        }
+    }
+
+    console.log(display.textContent);
+    
 })
 
 
