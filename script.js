@@ -23,6 +23,11 @@ keys.addEventListener("click", e => {
                 display.textContent = displayNum + keyContent;
             }
         }
+
+        // If decimal key is clicked
+        if (action === 'decimal') {
+            display.textContent = displayNum + '.';
+        }
     }
 
     console.log(display.textContent);
