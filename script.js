@@ -42,43 +42,43 @@ keys.addEventListener("click", e => {
             operator = action;
             lastKeyIsOperator = true;
         }
+
+        if (action === 'calculate') {
+            display.textContent = operate(num1, displayNum, operator);
+        }
     }
-    // console.log(previousKeyType);
-    // console.log(operator);
-    // console.log(display.textContent);
-    
 })
 
 
 function add(x, y) {
-    return x + y;
+    return parseFloat(x) + parseFloat(y);
 }
 
 function subtract(x, y) {
-    return x - y;
+    return parseFloat(x) - parseFloat(y);
 }
 
 function multiply(x, y) {
-    return x * y;
+    return parseFloat(x) * parseFloat(y);
 }
 
 function divide(x, y) {
-    return x / y;
+    return parseFloat(x) / parseFloat(y);
 }
 
 function operate(x, y, operator) {
 
     switch (operator) {
-        case '+':
+        case 'add':
             return add(x, y);
 
-        case '-':
+        case 'subtract':
             return subtract(x, y);
         
-        case '*':
+        case 'multiply':
             return multiply(x, y);
         
-        case '/':
+        case 'divide':
             return divide(x, y);
     }
 }
