@@ -28,6 +28,19 @@ keys.addEventListener("click", e => {
         if (action === 'decimal') {
             display.textContent = displayNum + '.';
         }
+
+        // If operator is clicked
+        if (
+            action === 'add' ||
+            action === 'subtract' ||
+            action === 'multiply' ||
+            action === 'divide'
+        ) {
+            num1 = displayNum;
+            displayNum = 0;
+            operator = action;
+
+        }
     }
 
     console.log(display.textContent);
