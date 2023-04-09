@@ -4,6 +4,7 @@ let operator = '';
 
 const keys = document.querySelector('.buttons');
 const display = document.querySelector('div.display');
+let lastKeyIsOperator = false;
 
 keys.addEventListener("click", e => {
     // console.log(e.target.dataset.action);
@@ -17,8 +18,9 @@ keys.addEventListener("click", e => {
 
         // Append number to display if button clicked is not an action
         if (!action) {
-            if (displayNum === '0') {
+            if (displayNum === '0' || lastKeyIsOperator === true) {
                 display.textContent = keyContent;
+                lastKeyIsOperator = false;
             } else {
                 display.textContent = displayNum + keyContent;
             }
@@ -37,13 +39,13 @@ keys.addEventListener("click", e => {
             action === 'divide'
         ) {
             num1 = displayNum;
-            displayNum = 0;
             operator = action;
-
+            lastKeyIsOperator = true;
         }
     }
-
-    console.log(display.textContent);
+    // console.log(previousKeyType);
+    // console.log(operator);
+    // console.log(display.textContent);
     
 })
 
