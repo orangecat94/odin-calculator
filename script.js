@@ -44,7 +44,7 @@ keys.addEventListener("click", e => {
         }
 
         if (action === 'calculate') {
-            display.textContent = operate(num1, displayNum, operator);
+            display.textContent = calculate(num1, displayNum, operator);
         }
     }
 })
@@ -66,7 +66,7 @@ function divide(x, y) {
     return parseFloat(x) / parseFloat(y);
 }
 
-function operate(x, y, operator) {
+function calculate(x, y, operator) {
 
     switch (operator) {
         case 'add':
