@@ -27,10 +27,10 @@ keys.addEventListener("click", e => {
         }
 
         // If decimal key is clicked
-        if (action === 'decimal') {
+        if (action === 'decimal' && (!displayNum.includes('.'))) {
             display.textContent = displayNum + '.';
         }
-
+        
         // If operator is clicked
         if (
             action === 'add' ||
