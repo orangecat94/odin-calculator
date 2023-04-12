@@ -27,8 +27,13 @@ keys.addEventListener("click", e => {
         }
 
         // If decimal key is clicked
-        if (action === 'decimal' && (!displayNum.includes('.'))) {
-            display.textContent = displayNum + '.';
+        if (action === 'decimal') {
+            if (lastKeyIsOperator === true) {
+                display.textContent = '0.'
+                lastKeyIsOperator = false;
+            } else if (!displayNum.includes('.')) {
+                display.textContent = displayNum + '.';
+            }
         }
         
         // If operator is clicked
@@ -41,6 +46,7 @@ keys.addEventListener("click", e => {
             num1 = displayNum;
             operator = action;
             lastKeyIsOperator = true;
+            display.textContent = '0';
         }
 
         if (action === 'calculate') {
