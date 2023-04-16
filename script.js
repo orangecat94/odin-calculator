@@ -39,9 +39,13 @@ keys.addEventListener("click", e => {
             action === 'multiply' ||
             action === 'divide'
         ) {
-            const firstValue = calculator.dataset.firstValue;
-            const operator = calculator.dataset.operator;
-            const secondValue = displayNum;
+            const firstValue = calculator.dataset.firstValue
+            const operator = calculator.dataset.operator
+            const secondValue = displayNum
+
+            console.log(`firstValue: ${firstValue}`)
+            console.log(`secondValue: ${secondValue}`)
+            console.log(`operator: ${operator}`)
 
             if (firstValue && operator && previousKeyType != 'operator') {
                 display.textContent = calculate(firstValue, secondValue, operator);
