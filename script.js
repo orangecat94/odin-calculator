@@ -1,39 +1,35 @@
-let num1 = 0;
-let num2 = 0;
-let operator = '';
-
+const calculator = document.querySelector('.calculator');
 const keys = document.querySelector('.buttons');
 const display = document.querySelector('div.display');
 let lastKeyIsOperator = false;
 
 keys.addEventListener("click", e => {
-    // console.log(e.target.dataset.action);
-    // console.log(e.target.textContent);
-    // console.log(display.textContent);
-
     if (e.target.matches('button')) {
         const action = e.target.dataset.action;
         const keyContent = e.target.textContent;
         const displayNum = display.textContent;
+        const previousKeyType = calculator.dataset.previousKeyType;
 
         // Append number to display if button clicked is not an action
         if (!action) {
-            if (displayNum === '0' || lastKeyIsOperator === true) {
+            if (displayNum === '0' || previousKeyType === 'operator') {
                 display.textContent = keyContent;
-                lastKeyIsOperator = false;
             } else {
                 display.textContent = displayNum + keyContent;
             }
+
+            calculator.dataset.previousKeyType = 'number';
         }
 
         // If decimal key is clicked
         if (action === 'decimal') {
-            if (lastKeyIsOperator === true) {
+            if (previousKeyType === 'operator') {
                 display.textContent = '0.'
-                lastKeyIsOperator = false;
             } else if (!displayNum.includes('.')) {
                 display.textContent = displayNum + '.';
             }
+
+            calculator.dataset.previousKeyType = 'decimal';
         }
         
         // If operator is clicked
@@ -43,14 +39,28 @@ keys.addEventListener("click", e => {
             action === 'multiply' ||
             action === 'divide'
         ) {
-            num1 = displayNum;
-            operator = action;
-            lastKeyIsOperator = true;
-            display.textContent = '0';
-        }
+            const firstValue = calculator.dataset.firstValue;
+            const operator = calculator.dataset.operator;
+            const secondValue = displayNum;
+
+            if (firstValue && operator && previousKeyType != 'operator') {
+                display.textContent = calculate(firstValue, secondValue, operator);
+            }
+            
+            calculator.dataset.previousKeyType = 'operator';
+            calculator.dataset.firstValue = displayNum;
+            calculator.dataset.operator = action;
+        } 
+            
 
         if (action === 'calculate') {
-            display.textContent = calculate(num1, displayNum, operator);
+            calculator.dataset.previousKeyType = 'calculate';
+
+            const firstValue = calculator.dataset.firstValue;
+            const operator = calculator.dataset.operator;
+            const secondValue = displayNum;
+
+            display.textContent = calculate(firstValue, secondValue, operator);
         }
     }
 })
